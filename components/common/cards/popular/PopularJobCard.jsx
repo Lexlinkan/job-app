@@ -1,13 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './popularjobcard.style'
 
 const PopularJobCard = () => {
   return (
-    <View>
+    <TouchableOpacity>
       <Text>PopularJobCard</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
