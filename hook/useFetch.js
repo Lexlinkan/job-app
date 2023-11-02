@@ -3,6 +3,7 @@ import axios from "axios";
 
 const useFetch = (endpoint, query) => {
   const [data, setData] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); 
   const [error, setError] = useState(null);
 
   const options = {
@@ -39,7 +40,7 @@ const useFetch = (endpoint, query) => {
     fetchData();
   }
 
-  return { data, isLoading, error, refetch }; 
+  return { data, isLoading, error, refetch } 
 };
 
 export default useFetch;
