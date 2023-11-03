@@ -31,18 +31,26 @@ const JobDetails = () => {
     job_id: params.id,
   });
 
-  const [refreshing, setRefreching] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const onRefresh = () => {};
+
   const displayTabContent = () => {
     switch (activeTab) {
-      case "Qualification":
+      case "Qualifications":
         return <Specifics 
-          title="qualifications"
-          points={data[0].job_highlights?.qulifications ?? ['N/A']} 
+          title="Qualifications"
+          points={data[0].job_highlights?.Qualifications ?? ['N/A']} 
         />
       case "About":
-      case "Responsibilites":
+        return <JobAbout 
+          info={data[0].job_description ?? "N/A"}
+        />
+      case "Responsibilities":
+        return <Specifics 
+        title="Responsibilities"
+        points={data[0].job_highlights?.Responsibilities ?? ['N/A']} 
+      />
       default:
         break;
     }
@@ -99,7 +107,10 @@ const JobDetails = () => {
             </View>
           )}
         </ScrollView>
+
+        <JobFooter url={data[0]?.job_google_link ?? "https://careers.google.com/jobs/results"}/>
       </>
+      
     </SafeAreaView>
   );
 };
